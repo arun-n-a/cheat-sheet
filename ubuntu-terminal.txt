@@ -1,0 +1,26 @@
+grep "word i want to find from file test.txt" ~/test.txt
+grep -i "Mount" mountains.txt (case sensitive -i)
+grep -R Arctic /Desktop/ (searches all files in a directory and outputs filenames and lines)
+grep -RL Arctic /Desktop/ ( return file name only)
+
+ 
+zip Files.zip Check.txt Test.txt Output.txt
+
+unzip Files.zip
+
+sudo -i (to continue the session as root user)
+
+history
+
+history -c (clear history)
+
+whereis python (displays the path of the package)
+
+whatis python
+
+cat file1.txt > newfile.txt
+
+cat file1.txt > file1appended.txt
+
+cp m*.txt Desktop/aruntest/
+
