@@ -1,0 +1,27 @@
+heroku login
+heroku open
+
+heroku ps
+heroku ps to determine the number of dynos that are executing. The list indicates the process type in the left column, and
+the command corresponding to that process type in the right column:
+
+heroku create (Deploy the app)
+
+git push heroku branchaname:master(Define a Procfile)
+
+heroku ps:scale web=1 (Ensure that at least one instance of the app is running)
+
+heroku logs --tail (view logs)
+
+(Define a Procfile)
+<process type>: <command>
+<process type> is an alphanumeric name for your command, such as web, worker, urgentworker, clock, and so on.
+<command> indicates the command that every dyno of the process type should execute on startup, such as rake jobs:work.
+
+Procfile, a text file in root directoryof application,to explicitly declare what command should be executed to start your app.
+We can use a Procfile to declare a variety of process types, including:
+  Your app’s web server
+  Multiple types of worker processes
+  A singleton process, such as a clock
+  Tasks to run before a new release is deployed
+web: gunicorn project_name.wsgi 
