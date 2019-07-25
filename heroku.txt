@@ -1,6 +1,8 @@
 heroku login
 heroku open
 
+heroku release (checking release)
+
 heroku ps
 heroku ps to determine the number of dynos that are executing. The list indicates the process type in the left column, and
 the command corresponding to that process type in the right column:
@@ -24,4 +26,26 @@ We can use a Procfile to declare a variety of process types, including:
   Multiple types of worker processes
   A singleton process, such as a clock
   Tasks to run before a new release is deployed
-web: gunicorn project_name.wsgi 
+web: gunicorn project_name.wsgi
+release: python manage.py migrate
+
+
+heroku local
+(start your app locally)
+To locally start a particular process type, specify the process type. For example, “web” or “worker”:
+    heroku local web
+To use a different Procfile, use the -f flag:
+    heroku local -f Procfile.test.
+To use a different environment file, use the -e flag:
+    heroku local -e .env.test.
+To use a different port, use the -p flag:
+    heroku local -p 7000. If you don’t specify a port, 5000 is used.
+    
+heroku configs (To view all of your app’s config vars, )
+heroku configs >> .env (copy configs from production to local env)
+
+ To use release phase push a Docker image named release:
+    heroku container:push release
+ When you release your Docker images, by running heroku container:release, your release phase process type needs to be specified:
+    heroku container:release web release
+
