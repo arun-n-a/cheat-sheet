@@ -1,5 +1,6 @@
 heroku login
 heroku open
+heroku git:clone -a myappname
 
 heroku release (checking release)
 
