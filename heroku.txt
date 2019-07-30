@@ -50,3 +50,9 @@ heroku configs >> .env (copy configs from production to local env)
  When you release your Docker images, by running heroku container:release, your release phase process type needs to be specified:
     heroku container:release web release
 
+
+Create PostgresSQL dump:
+    heroku config:get DATABASE_URL
+    pg_dump --host=<host_name> --port=<port> --username=<username> --password --dbname=<dbname> > output.sql
+ if required to import data: 
+    psql -d my_local_database -f output.sql
